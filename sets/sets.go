@@ -118,6 +118,20 @@ func (s *Set) Equal(s2 *Set) bool {
 
 }
 
+func (s *Set) ProperSubset(s2 *Set) bool {
+	if s.Equal(s2) {
+		return false
+	}
+	return s.Subset(s2)
+}
+
+func (s *Set) ProperSuperset(s2 *Set) bool {
+	if s.Equal(s2) {
+		return false
+	}
+	return s.Superset(s2)
+}
+
 func Union(s1, s2 *Set) *Set {
 	return s1.Union(s2)
 }
