@@ -77,6 +77,16 @@ func (s *Set) Contains(v interface{}) bool {
 	return ok
 }
 
+// ContainsAll returns true if the set contains all the values
+func (s *Set) ContainsAll(v ...interface{}) bool {
+	for _, vl := range v {
+		if _, ok := s.values[vl]; !ok {
+			return false
+		}
+	}
+	return true
+}
+
 // Union creates a new set which is a union of this set with the passed set
 func (s *Set) Union(s2 *Set) *Set {
 	s3 := New(s.Elements()...)
@@ -190,6 +200,11 @@ func Elements(s *Set) []interface{} {
 func Contains(s *Set, v interface{}) bool {
 	_, ok := s.values[v]
 	return ok
+}
+
+// ContainsAll returns true if the passed set contains all the values passed
+func ContainsAll(s *Set, v ...interface{}) bool {
+	return s.ContainsAll(v...)
 }
 
 // Union creates a new set which is a union of the passed sets
