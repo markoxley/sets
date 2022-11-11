@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Set stores a discrete set of data
 type Set struct {
 	values map[interface{}]struct{}
 }
