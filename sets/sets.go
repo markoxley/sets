@@ -101,6 +101,23 @@ func (s *Set) SymmetricDifference(s2 *Set) *Set {
 	return s3
 }
 
+func (s *Set) Disjoint(s2 *Set) bool {
+	s3 := s.Intersect(s2)
+	return s3.Empty()
+}
+
+func (s *Set) Subset(s2 *Set) bool {
+
+}
+
+func (s *Set) Superset(s2 *Set) bool {
+
+}
+
+func (s *Set) Equal(s2 *Set) bool {
+
+}
+
 func Union(s1, s2 *Set) *Set {
 	return s1.Union(s2)
 }
